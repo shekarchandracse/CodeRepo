@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+	<title></title>
+	<script src="../../Scripts/angular.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+	<script src="../../Scripts/jquery-3.4.1.js"></script>
+	<script src="../../Scripts/bootstrap.js"></script>
+	<script src="../Scripts/RouteController.js"></script>
+
+	<link href="../../Content/Site.css" rel="stylesheet" />
+	<link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<h2>Welcome Reader!</h2>
+	<div ngIf='"{{Country}}"==="India"' ng-controller="myCtrl">
+		Search <input type="text" ng-model="search" placeholder="Enter some text to search" />
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Book Type</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="book in Books | filter : search">
+					<td>{{book.Title}}</td>
+					<td>{{book.Author}}</td>
+					<td>{{book.Type}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
